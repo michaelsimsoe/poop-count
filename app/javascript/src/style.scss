@@ -1,6 +1,7 @@
 html {
   box-sizing: border-box;
   font-size: 16px;
+  font-family: "Roboto", sans-serif;
 }
 
 *,
@@ -38,11 +39,17 @@ img {
   height: 20vh;
   width: 100%;
   background-color: #69d2a6;
-  text-align: center;
-
+  // text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   & h1 {
     text-transform: uppercase;
     color: #fff;
+  }
+
+  a {
+    display: none;
   }
 }
 .main-content {
@@ -105,14 +112,27 @@ img {
       border: none;
       font-family: "Exo", sans-serif;
       font-size: 2em;
+      transition: all 0.4s ease-in-out;
 
       &-feces {
         background-color: #cd6133;
         color: darken(#cd6133, 30%);
+
+        &:active {
+          background-color: darken(#cd6133, 30%);
+          color: lighten(#cd6133, 30%);
+          transform: scale(1.3);
+        }
       }
       &-urine {
         background-color: #ffda79;
         color: darken(#ffda79, 60%);
+
+        &:active {
+          background-color: darken(#ffda79, 30%);
+          color: lighten(#ffda79, 30%);
+          transform: scale(1.3);
+        }
       }
     }
   }

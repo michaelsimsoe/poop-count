@@ -10,16 +10,16 @@
       <h2>I GÅR</h2>
       <h3><%= Date.today.prev_day %></h3>
       <ul class="stats__stats stats__stats-yesterday">
-        <li class="stats__item">Tiss:</li>
-        <li class="stats__item">Bæsj:</li>
+        <li class="stats__item">Tiss: <%= yesterdays_urine_diaper %></li>
+        <li class="stats__item">Bæsj: <%= yesterdays_feces_diaper %></li>
       </ul>
     </div>
     <div class="stats__day stats__today">
       <h2>I DAG</h2>
       <h3><%= Date.today %></h3>
       <ul class="stats__stats stats__stats-today">
-        <li class="stats__item">Tiss:</li>
-        <li class="stats__item">Bæsj:</li>
+        <li class="stats__item">Tiss: <%= todays_urine_diaper %></li>
+        <li class="stats__item">Bæsj: <%= todays_feces_diaper %></li>
       </ul>
     </div>
   </section>
