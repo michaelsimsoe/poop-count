@@ -1,0 +1,9 @@
+<h1>Hello excreta</h1>
+<%= form_with model: Excretum.new, class: "nifty_form" do |f| %>
+<%= f.hidden_field :excreta_type, :value=>"avføring" %>
+<%= f.submit "Bæsjebleie" %>
+<% end %>
+<%= form_with model: Excretum.new, class: "nifty_form" do |f| %>
+<%= f.hidden_field :excreta_type, :value=>"urin" %>
+<%= f.submit "Tissebleie" %>
+<% end %>

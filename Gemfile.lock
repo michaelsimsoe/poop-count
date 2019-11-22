@@ -187,10 +187,10 @@ DEPENDENCIES
   sass-rails (>= 6)
   spring
   spring-watcher-listen (~> 2.0.0)
-  turbolinks (~> 5)
+  turbolinks (= 5.2.1)
   tzinfo-data
   web-console (>= 3.3.0)
-  webpacker (~> 4.0)
+  webpacker (= 4.2.0)
 
 RUBY VERSION
    ruby 2.6.3p62

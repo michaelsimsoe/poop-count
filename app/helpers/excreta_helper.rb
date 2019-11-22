@@ -1,0 +1,2 @@
+module ExcretaHelper
+end
