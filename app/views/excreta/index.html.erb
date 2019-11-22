@@ -1,9 +1,36 @@
-<h1>Hello excreta</h1>
-<%= form_with model: Excretum.new, class: "nifty_form" do |f| %>
-<%= f.hidden_field :excreta_type, :value=>"avføring" %>
-<%= f.submit "Bæsjebleie" %>
-<% end %>
-<%= form_with model: Excretum.new, class: "nifty_form" do |f| %>
-<%= f.hidden_field :excreta_type, :value=>"urin" %>
-<%= f.submit "Tissebleie" %>
-<% end %>
+<header class="main-header">
+  <h1>Blei-orama</h1>
+  <nav class="main-navigation">
+    <a href="/" class="navigation__link">Oversikt (ikke klar)</a>
+  </nav>
+</header>
+<main class="main-content">
+  <section class="stats">
+    <div class="stats__day stats__yesterday">
+      <h2>I GÅR</h2>
+      <h3><%= Date.today.prev_day %></h3>
+      <ul class="stats__stats stats__stats-yesterday">
+        <li class="stats__item">Tiss:</li>
+        <li class="stats__item">Bæsj:</li>
+      </ul>
+    </div>
+    <div class="stats__day stats__today">
+      <h2>I DAG</h2>
+      <h3><%= Date.today %></h3>
+      <ul class="stats__stats stats__stats-today">
+        <li class="stats__item">Tiss:</li>
+        <li class="stats__item">Bæsj:</li>
+      </ul>
+    </div>
+  </section>
+  <section class="diaper-controll">
+    <%= form_with model: Excretum.new, class: "nifty_form" do |f| %>
+    <%= f.hidden_field :excreta_type, :value=>"avføring" %>
+    <%= f.submit "Bæsjebleie", :class=>"diaper-btn diaper-btn-feces" %>
+    <% end %>
+    <%= form_with model: Excretum.new, class: "nifty_form" do |f| %>
+    <%= f.hidden_field :excreta_type, :value=>"urin" %>
+    <%= f.submit "Tissebleie", :class=>"diaper-btn diaper-btn-urine" %>
+    <% end %>
+  </section>
+</main>
