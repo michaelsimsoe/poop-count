@@ -8,7 +8,7 @@
   <section class="stats">
     <div class="stats__day stats__yesterday">
       <h2>I GÅR</h2>
-      <h3><%= Date.today.prev_day %></h3>
+      <h3><%= Time.zone.yesterday %></h3>
       <ul class="stats__stats stats__stats-yesterday">
         <li class="stats__item">Tiss: <%= yesterdays_urine_diaper %></li>
         <li class="stats__item">Bæsj: <%= yesterdays_feces_diaper %></li>
@@ -16,21 +16,21 @@
     </div>
     <div class="stats__day stats__today">
       <h2>I DAG</h2>
-      <h3><%= Date.today %></h3>
+      <h3><%= Time.zone.today %></h3>
       <ul class="stats__stats stats__stats-today">
-        <li class="stats__item">Tiss: <%= todays_urine_diaper %></li>
-        <li class="stats__item">Bæsj: <%= todays_feces_diaper %></li>
+        <li class="stats__item">Tiss: <span id="stats__stats-today_urine"><%= todays_urine_diaper %></span></li>
+        <li class="stats__item">Bæsj: <span id="stats__stats-today_feces"><%= todays_feces_diaper %></span></li>
       </ul>
     </div>
   </section>
   <section class="diaper-controll">
     <%= form_with model: Excretum.new, class: "nifty_form" do |f| %>
     <%= f.hidden_field :excreta_type, :value=>"avføring" %>
-    <%= f.submit "Bæsjebleie", :class=>"diaper-btn diaper-btn-feces" %>
+    <%= f.submit "Bæsjebleie", :class=>"diaper-btn diaper-btn-feces", :id=>"today_feces_btn" %>
     <% end %>
     <%= form_with model: Excretum.new, class: "nifty_form" do |f| %>
     <%= f.hidden_field :excreta_type, :value=>"urin" %>
-    <%= f.submit "Tissebleie", :class=>"diaper-btn diaper-btn-urine" %>
+    <%= f.submit "Tissebleie", :class=>"diaper-btn diaper-btn-urine", :id=>"today_urine_btn" %>
     <% end %>
   </section>
 </main>

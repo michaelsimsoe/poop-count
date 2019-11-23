@@ -53,3 +53,36 @@ async function install() {
     });
   }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const urineContent = document.getElementById("stats__stats-today_urine");
+  const fecesContent = document.getElementById("stats__stats-today_feces");
+  const urineBtn = document.getElementById("today_urine_btn");
+  const fecesBtn = document.getElementById("today_feces_btn");
+
+  urineBtn.addEventListener("click", function(e) {
+    urineContent.classList.add("grow-stat");
+    urineContent.innerHTML = +urineContent.innerHTML + 1;
+    setTimeout(function() {
+      urineContent.classList.remove("grow-stat");
+    }, 1000);
+  });
+
+  fecesBtn.addEventListener("click", function(e) {
+    fecesContent.classList.add("grow-stat");
+    fecesContent.innerHTML = +fecesContent.innerHTML + 1;
+    setTimeout(function() {
+      fecesContent.classList.remove("grow-stat");
+    }, 1000);
+  });
+
+  const installbutton = document.getElementById("pwa-btn");
+  if (!installbutton) return;
+  if (window.matchMedia("(display-mode: standalone)").matches) {
+    installbutton.remove();
+  }
+  installbutton.addEventListener("click", function() {
+    install();
+    installbutton.remove();
+  });
+});
