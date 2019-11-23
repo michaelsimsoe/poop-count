@@ -76,13 +76,16 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 1000);
   });
 
-  const installbutton = document.getElementById("pwa-btn");
+  const installbutton = document.getElementById("install");
   if (!installbutton) return;
   if (window.matchMedia("(display-mode: standalone)").matches) {
-    installbutton.remove();
+    installbutton.addEventListener("click", installPwa);
   }
-  installbutton.addEventListener("click", function() {
+
+  function installPwa() {
     install();
-    installbutton.remove();
-  });
+    installbutton.removeEventListener("click", installPwa);
+  }
+
+  installbutton.addEventListener("click", installPwa);
 });
