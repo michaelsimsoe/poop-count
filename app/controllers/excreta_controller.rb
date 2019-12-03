@@ -7,6 +7,10 @@ class ExcretaController < ApplicationController
     @excretum = Excretum.create(excreta_params)
   end
 
+  def delete_last
+    Excretum.last.destroy
+  end
+
   private
   def excreta_params
     params.require(:excretum).permit(:excreta_type)

@@ -59,21 +59,51 @@ document.addEventListener("DOMContentLoaded", function() {
   const fecesContent = document.getElementById("stats__stats-today_feces");
   const urineBtn = document.getElementById("today_urine_btn");
   const fecesBtn = document.getElementById("today_feces_btn");
+  const diaperBtn = document.querySelector(".diaper-btn");
+  const regretBtn = document.querySelector(".regret-btn");
+  let last = "";
+
+  diaperBtn.addEventListener("click", function(e) {
+    regretBtn.classList.remove("regret-btn--hidden");
+  });
+
+  regretBtn.addEventListener("click", function(e) {
+    regretBtn.classList.add("regret-btn--hidden");
+    if (last === "urine") {
+      urineContent.classList.add("grow-stat");
+      urineContent.innerHTML = +urineContent.innerHTML - 1;
+      setTimeout(function() {
+        urineContent.classList.remove("grow-stat");
+      }, 1000);
+    }
+
+    if (last === "feces") {
+      fecesContent.classList.add("grow-stat");
+      fecesContent.innerHTML = +fecesContent.innerHTML - 1;
+      setTimeout(function() {
+        fecesContent.classList.remove("grow-stat");
+      }, 1000);
+    }
+  });
 
   urineBtn.addEventListener("click", function(e) {
+    regretBtn.classList.remove("regret-btn--hidden");
     urineContent.classList.add("grow-stat");
     urineContent.innerHTML = +urineContent.innerHTML + 1;
     setTimeout(function() {
       urineContent.classList.remove("grow-stat");
     }, 1000);
+    last = "urine";
   });
 
   fecesBtn.addEventListener("click", function(e) {
+    regretBtn.classList.remove("regret-btn--hidden");
     fecesContent.classList.add("grow-stat");
     fecesContent.innerHTML = +fecesContent.innerHTML + 1;
     setTimeout(function() {
       fecesContent.classList.remove("grow-stat");
     }, 1000);
+    last = "feces";
   });
 
   const installbutton = document.getElementById("install");
